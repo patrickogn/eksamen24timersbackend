@@ -1,0 +1,312 @@
+GET http://localhost:8080/semesterproject/api/recipe/search/Hungarian
+Content-Type: application/json
+
+###
+GET http://localhost:8080/semesterproject/api/recipe/getRecipes
+Content-Type: application/json
+
+### Get recipe from DB by id
+GET http://localhost:8080/semesterproject/api/recipe/654812
+Content-Type: application/json
+
+### Get getbookmarked recipe list from DB by userName
+GET http://localhost:8080/semesterproject/api/recipe/user/user
+Content-Type: application/json
+
+### Delete bookmark
+DELETE http://localhost:8080/semesterproject/api/recipe/bookmark/user/647661
+Content-Type: application/json
+
+### Get SingleRecipe
+GET http://localhost:8080/semesterproject/api/recipe/singleRecipe/666959
+Content-Type: application/json
+
+### Get Bookmark by Username
+GET http://localhost:8080/semesterproject/api/bookmark/user
+Content-Type: application/json
+
+### POST mealPlan
+POST http://localhost:8080/semesterproject/api/mealPlan
+Content-Type: application/json
+
+{
+  "userName": "user",
+  "recipeId": 666959,
+  "type": "DINNER",
+  "date": {
+    "year": 2022,
+    "month": 12,
+    "day": 6
+  }
+
+}
+
+### GET a list of mealplans for user
+GET http://localhost:8080/semesterproject/api/mealPlan/user
+Content-Type: application/json
+
+### Get Mealplan recipe list by userName & Date
+POST http://localhost:8080/semesterproject/api/mealPlan/user/recipes
+Content-Type: application/json
+
+{
+  "year": 2022,
+  "month": 12,
+  "day": 31
+}
+
+### POST Bookmark
+POST http://localhost:8080/semesterproject/api/bookmark
+Content-Type: application/json
+
+{
+  "userName": "user",
+  "recipeId": 666959
+}
+
+### POST recipe
+POST http://localhost:8080/semesterproject/api/recipe
+Content-Type: application/json
+
+{
+  "extendedIngredients": [
+    {
+      "id": 1034053,
+      "nameClean": "extra virgin olive oil",
+      "amount": 3.0,
+      "unit": "tablespoons"
+    },
+    {
+      "id": 1102047,
+      "nameClean": "salt and pepper",
+      "amount": 4.0,
+      "unit": "servings"
+    },
+    {
+      "id": 5006,
+      "nameClean": "whole chicken",
+      "amount": 1.0,
+      "unit": ""
+    }
+  ],
+  "id": 666959,
+  "title": "The Minimalist: Simplest Roast Chicken",
+  "readyInMinutes": 45,
+  "servings": 4,
+  "image": "https://spoonacular.com/recipeImages/666959-556x370.jpg",
+  "diets": [
+    "gluten free",
+    "dairy free",
+    "paleolithic",
+    "primal",
+    "fodmap friendly",
+    "whole 30"
+  ],
+  "analyzedInstructions": [
+    {
+      "name": "",
+      "steps": [
+        {
+          "number": 1,
+          "step": "Put a cast-iron skillet on a low rack in the oven and heat the oven to 500 degrees. Rub the chicken all over with the oil and sprinkle it generously with salt and pepper."
+        },
+        {
+          "number": 2,
+          "step": "When the oven and skillet are hot, carefully put the chicken in the skillet, breast side up. Roast for 15 minutes, then turn the oven temperature down to 350 degrees. Continue to roast until the bird is golden brown and an instant-read thermometer inserted into the meaty part of the thigh reads 155 to 165 degrees."
+        },
+        {
+          "number": 3,
+          "step": "Tip the pan to let the juices flow from the chickens cavity into the pan."
+        },
+        {
+          "number": 4,
+          "step": "Transfer the chicken to a platter and let it rest for at least 5 minutes. Carve and serve.Variations:Source: The New York Times"
+        }
+      ]
+    }
+  ],
+  "nutrition": {
+    "nutrients": [
+      {
+        "name": "Calories",
+        "amount": 502.27,
+        "unit": "kcal",
+        "percentOfDailyNeeds": 25.11
+      },
+      {
+        "name": "Fat",
+        "amount": 39.18,
+        "unit": "g",
+        "percentOfDailyNeeds": 60.28
+      },
+      {
+        "name": "Saturated Fat",
+        "amount": 9.66,
+        "unit": "g",
+        "percentOfDailyNeeds": 60.36
+      },
+      {
+        "name": "Carbohydrates",
+        "amount": 0.0,
+        "unit": "g",
+        "percentOfDailyNeeds": 0.0
+      },
+      {
+        "name": "Net Carbohydrates",
+        "amount": 0.0,
+        "unit": "g",
+        "percentOfDailyNeeds": 0.0
+      },
+      {
+        "name": "Sugar",
+        "amount": 0.0,
+        "unit": "g",
+        "percentOfDailyNeeds": 0.0
+      },
+      {
+        "name": "Cholesterol",
+        "amount": 142.83,
+        "unit": "mg",
+        "percentOfDailyNeeds": 47.61
+      },
+      {
+        "name": "Sodium",
+        "amount": 327.31,
+        "unit": "mg",
+        "percentOfDailyNeeds": 14.23
+      },
+      {
+        "name": "Protein",
+        "amount": 35.42,
+        "unit": "g",
+        "percentOfDailyNeeds": 70.84
+      },
+      {
+        "name": "Vitamin B3",
+        "amount": 12.95,
+        "unit": "mg",
+        "percentOfDailyNeeds": 64.76
+      },
+      {
+        "name": "Selenium",
+        "amount": 27.42,
+        "unit": "Âµg",
+        "percentOfDailyNeeds": 39.18
+      },
+      {
+        "name": "Vitamin B6",
+        "amount": 0.67,
+        "unit": "mg",
+        "percentOfDailyNeeds": 33.33
+      },
+      {
+        "name": "Phosphorus",
+        "amount": 279.95,
+        "unit": "mg",
+        "percentOfDailyNeeds": 27.99
+      },
+      {
+        "name": "Vitamin B5",
+        "amount": 1.73,
+        "unit": "mg",
+        "percentOfDailyNeeds": 17.33
+      },
+      {
+        "name": "Zinc",
+        "amount": 2.5,
+        "unit": "mg",
+        "percentOfDailyNeeds": 16.64
+      },
+      {
+        "name": "Vitamin E",
+        "amount": 2.08,
+        "unit": "mg",
+        "percentOfDailyNeeds": 13.89
+      },
+      {
+        "name": "Vitamin B2",
+        "amount": 0.23,
+        "unit": "mg",
+        "percentOfDailyNeeds": 13.44
+      },
+      {
+        "name": "Potassium",
+        "amount": 360.08,
+        "unit": "mg",
+        "percentOfDailyNeeds": 10.29
+      },
+      {
+        "name": "Iron",
+        "amount": 1.77,
+        "unit": "mg",
+        "percentOfDailyNeeds": 9.86
+      },
+      {
+        "name": "Vitamin B12",
+        "amount": 0.59,
+        "unit": "Âµg",
+        "percentOfDailyNeeds": 9.84
+      },
+      {
+        "name": "Magnesium",
+        "amount": 38.09,
+        "unit": "mg",
+        "percentOfDailyNeeds": 9.52
+      },
+      {
+        "name": "Vitamin K",
+        "amount": 9.18,
+        "unit": "Âµg",
+        "percentOfDailyNeeds": 8.74
+      },
+      {
+        "name": "Vitamin B1",
+        "amount": 0.11,
+        "unit": "mg",
+        "percentOfDailyNeeds": 7.62
+      },
+      {
+        "name": "Vitamin A",
+        "amount": 266.62,
+        "unit": "IU",
+        "percentOfDailyNeeds": 5.33
+      },
+      {
+        "name": "Copper",
+        "amount": 0.09,
+        "unit": "mg",
+        "percentOfDailyNeeds": 4.58
+      },
+      {
+        "name": "Vitamin C",
+        "amount": 3.05,
+        "unit": "mg",
+        "percentOfDailyNeeds": 3.69
+      },
+      {
+        "name": "Folate",
+        "amount": 11.43,
+        "unit": "Âµg",
+        "percentOfDailyNeeds": 2.86
+      },
+      {
+        "name": "Vitamin D",
+        "amount": 0.38,
+        "unit": "Âµg",
+        "percentOfDailyNeeds": 2.54
+      },
+      {
+        "name": "Calcium",
+        "amount": 21.17,
+        "unit": "mg",
+        "percentOfDailyNeeds": 2.12
+      },
+      {
+        "name": "Manganese",
+        "amount": 0.04,
+        "unit": "mg",
+        "percentOfDailyNeeds": 1.83
+      }
+    ]
+  }
+}
