@@ -28,6 +28,7 @@ public class Conference {
     @Column(name = "date")
     private LocalDate date;
 
+    @Temporal(TemporalType.TIME)
     @Column(name = "time")
     private LocalTime time;
 

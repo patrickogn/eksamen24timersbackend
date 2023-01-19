@@ -2,6 +2,7 @@ package entities;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -22,8 +23,9 @@ public class Talk {
     @Column(name = "topic", length = 45)
     private String topic;
 
+    @Temporal(TemporalType.TIME)
     @Column(name = "duration")
-    private LocalTime duration;
+    private LocalTime time;
 
     @Size(max = 200)
     @Column(name = "propslist", length = 200)
@@ -62,12 +64,12 @@ public class Talk {
         this.topic = topic;
     }
 
-    public LocalTime getDuration() {
-        return duration;
+    public LocalTime getTime() {
+        return time;
     }
 
-    public void setDuration(LocalTime duration) {
-        this.duration = duration;
+    public void setTime(LocalTime time) {
+        this.time = time;
     }
 
     public String getPropslist() {
