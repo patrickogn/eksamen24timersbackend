@@ -5,8 +5,8 @@ import java.util.List;
 
 public class CombinedDTO
 {
-   String id;
-   List<String> joke = new ArrayList<>();
+    String id;
+    List<String> joke = new ArrayList<>();
 
     public CombinedDTO(DadDTO dad, ChuckDTO chuck)
     {

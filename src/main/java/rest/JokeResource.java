@@ -7,7 +7,6 @@ import dtos.CombinedDTO;
 import dtos.DadDTO;
 import facades.JokeFacade;
 
-import javax.persistence.EntityManagerFactory;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
