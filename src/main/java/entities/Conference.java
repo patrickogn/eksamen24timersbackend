@@ -2,8 +2,10 @@ package entities;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Date;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -11,7 +13,7 @@ import java.util.Set;
 @Table(name = "conference")
 public class Conference {
     @Id
-    @Column(name = "id_conference", nullable = false)
+    @Column(name = "id_conference")
     private Integer id;
 
     @Size(max = 45)
@@ -26,11 +28,12 @@ public class Conference {
     private Integer capacity;
 
     @Column(name = "date")
-    private LocalDate date;
+    @Temporal(TemporalType.DATE)
+    private Date date;
 
-    @Temporal(TemporalType.TIME)
+
     @Column(name = "time")
-    private LocalTime time;
+    private Time time;
 
     public Conference() {
     }
@@ -76,19 +79,19 @@ public class Conference {
         this.capacity = capacity;
     }
 
-    public LocalDate getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
-    public LocalTime getTime() {
+    public Time getTime() {
         return time;
     }
 
-    public void setTime(LocalTime time) {
+    public void setTime(Time time) {
         this.time = time;
     }
 

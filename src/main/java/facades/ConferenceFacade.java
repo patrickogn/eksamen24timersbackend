@@ -1,6 +1,8 @@
 package facades;
 
+import dtos.ConferenceDTO;
 import dtos.RenameMeDTO;
+import entities.Conference;
 import entities.RenameMe;
 import utils.EMF_Creator;
 
@@ -65,17 +67,10 @@ public class ConferenceFacade {
         }
     }
 
-    public List<RenameMeDTO> getAll(){
+    public List<ConferenceDTO> getAllConferences(){
         EntityManager em = emf.createEntityManager();
-        TypedQuery<RenameMe> query = em.createQuery("SELECT r FROM RenameMe r", RenameMe.class);
-        List<RenameMe> rms = query.getResultList();
-        return RenameMeDTO.getDtos(rms);
+        TypedQuery<Conference> query = em.createQuery("SELECT c FROM Conference c", Conference.class);
+        List<Conference> rms = query.getResultList();
+        return ConferenceDTO.getDtos(rms);
     }
-
-    public static void main(String[] args) {
-        emf = EMF_Creator.createEntityManagerFactory();
-        ConferenceFacade fe = getConferenceFacade(emf);
-        fe.getAll().forEach(dto->System.out.println(dto));
-    }
-
 }

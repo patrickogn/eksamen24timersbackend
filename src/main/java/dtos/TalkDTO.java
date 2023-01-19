@@ -5,6 +5,7 @@ import entities.Talk;
 
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.sql.Time;
 import java.time.LocalTime;
 import java.util.Objects;
 import java.util.Set;
@@ -16,12 +17,12 @@ public class TalkDTO implements Serializable {
     private final Integer id;
     @Size(max = 45)
     private final String topic;
-    private final LocalTime time;
+    private final Time time;
     @Size(max = 200)
     private final String propslist;
     private final Set<SpeakerDto> speakers;
 
-    public TalkDTO(Integer id, String topic, LocalTime time, String propslist, Set<SpeakerDto> speakers) {
+    public TalkDTO(Integer id, String topic, Time time, String propslist, Set<SpeakerDto> speakers) {
         this.id = id;
         this.topic = topic;
         this.time = time;
@@ -37,7 +38,7 @@ public class TalkDTO implements Serializable {
         return topic;
     }
 
-    public LocalTime getTime() {
+    public Time getTime() {
         return time;
     }
 
