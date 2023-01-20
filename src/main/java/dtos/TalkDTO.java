@@ -7,6 +7,8 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.sql.Time;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -20,14 +22,28 @@ public class TalkDTO implements Serializable {
     private final Time time;
     @Size(max = 200)
     private final String propslist;
-    private final Set<SpeakerDto> speakers;
+//    private final Set<SpeakerDto> speakers;
 
-    public TalkDTO(Integer id, String topic, Time time, String propslist, Set<SpeakerDto> speakers) {
+    public TalkDTO(Integer id, String topic, Time time, String propslist) {
         this.id = id;
         this.topic = topic;
         this.time = time;
         this.propslist = propslist;
-        this.speakers = speakers;
+//        this.speakers = speakers;
+    }
+
+    public TalkDTO(Talk rm) {
+        this.id = rm.getId();
+        this.topic = rm.getTopic();
+        this.time = rm.getTime();
+        this.propslist = rm.getPropslist();
+//        this.speakers = rm.getSpeakers();
+    }
+
+    public static List<SpeakerDTO> getDtos(List<Speaker> rms) {
+        List<SpeakerDTO> rmdtos = new ArrayList<>();
+        rms.forEach(rm -> rmdtos.add(new SpeakerDTO(rm)));
+        return rmdtos;
     }
 
     public Integer getId() {
@@ -46,9 +62,9 @@ public class TalkDTO implements Serializable {
         return propslist;
     }
 
-    public Set<SpeakerDto> getSpeakers() {
-        return speakers;
-    }
+//    public Set<SpeakerDto> getSpeakers() {
+//        return speakers;
+//    }
 
     @Override
     public boolean equals(Object o) {
@@ -58,13 +74,12 @@ public class TalkDTO implements Serializable {
         return Objects.equals(this.id, entity.id) &&
                 Objects.equals(this.topic, entity.topic) &&
                 Objects.equals(this.time, entity.time) &&
-                Objects.equals(this.propslist, entity.propslist) &&
-                Objects.equals(this.speakers, entity.speakers);
+                Objects.equals(this.propslist, entity.propslist);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, topic, time, propslist, speakers);
+        return Objects.hash(id, topic, time, propslist);
     }
 
     @Override
@@ -73,8 +88,7 @@ public class TalkDTO implements Serializable {
                 "id = " + id + ", " +
                 "topic = " + topic + ", " +
                 "time = " + time + ", " +
-                "propslist = " + propslist + ", " +
-                "speakers = " + speakers + ")";
+                "propslist = " + propslist;
     }
 
     /**

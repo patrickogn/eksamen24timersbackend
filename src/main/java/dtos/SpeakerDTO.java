@@ -21,14 +21,22 @@ public class SpeakerDTO implements Serializable {
     private final String profession;
     @Size(max = 45)
     private final String gender;
-    private final Set<TalkDto> talks;
+//    private final Set<TalkDto> talks;
 
-    public SpeakerDTO(Integer id, String name, String profession, String gender, Set<TalkDto> talks) {
+    public SpeakerDTO(Integer id, String name, String profession, String gender) {
         this.id = id;
         this.name = name;
         this.profession = profession;
         this.gender = gender;
-        this.talks = talks;
+//        this.talks = talks;
+    }
+
+    public SpeakerDTO(Speaker rm) {
+        this.id = rm.getId();
+        this.name = rm.getName();
+        this.profession = rm.getProfession();
+        this.gender = rm.getGender();
+
     }
 
     public Integer getId() {
@@ -47,9 +55,9 @@ public class SpeakerDTO implements Serializable {
         return gender;
     }
 
-    public Set<TalkDto> getTalks() {
-        return talks;
-    }
+//    public Set<TalkDto> getTalks() {
+//        return talks;
+//    }
 
     @Override
     public boolean equals(Object o) {
@@ -59,13 +67,12 @@ public class SpeakerDTO implements Serializable {
         return Objects.equals(this.id, entity.id) &&
                 Objects.equals(this.name, entity.name) &&
                 Objects.equals(this.profession, entity.profession) &&
-                Objects.equals(this.gender, entity.gender) &&
-                Objects.equals(this.talks, entity.talks);
+                Objects.equals(this.gender, entity.gender);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, profession, gender, talks);
+        return Objects.hash(id, name, profession, gender);
     }
 
     @Override
@@ -74,8 +81,7 @@ public class SpeakerDTO implements Serializable {
                 "id = " + id + ", " +
                 "name = " + name + ", " +
                 "profession = " + profession + ", " +
-                "gender = " + gender + ", " +
-                "talks = " + talks + ")";
+                "gender = " + gender;
     }
 
     /**
