@@ -15,6 +15,7 @@ import java.util.*;
  */
 public class ConferenceDTO implements Serializable {
 
+    private final Integer id;
     private final String name;
     private final String location;
     private final Integer capacity;
@@ -22,7 +23,8 @@ public class ConferenceDTO implements Serializable {
     private final Time time;
 //    private final TalkDTO talk;
 
-    public ConferenceDTO(String name, String location, Integer capacity, Date date, Time time, TalkDTO talk) {
+    public ConferenceDTO(Integer id, String name, String location, Integer capacity, Date date, Time time, TalkDTO talk) {
+        this.id = id;
         this.name = name;
         this.location = location;
         this.capacity = capacity;
@@ -32,6 +34,7 @@ public class ConferenceDTO implements Serializable {
     }
 
     public ConferenceDTO(Conference rm) {
+        this.id = rm.getId();
         this.name = rm.getName();
         this.location = rm.getLocation();
         this.capacity = rm.getCapacity();
@@ -47,6 +50,9 @@ public class ConferenceDTO implements Serializable {
         return rmdtos;
     }
 
+    public Integer getId() {
+        return id;
+    }
 
     public String getName() {
         return name;
@@ -68,31 +74,29 @@ public class ConferenceDTO implements Serializable {
         return time;
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ConferenceDTO entity = (ConferenceDTO) o;
-        return Objects.equals(this.name, entity.name) &&
-                Objects.equals(this.location, entity.location) &&
-                Objects.equals(this.capacity, entity.capacity) &&
-                Objects.equals(this.date, entity.date) &&
-                Objects.equals(this.time, entity.time);
+        if (!(o instanceof ConferenceDTO)) return false;
+        ConferenceDTO that = (ConferenceDTO) o;
+        return Objects.equals(getId(), that.getId()) && Objects.equals(getName(), that.getName()) && Objects.equals(getLocation(), that.getLocation()) && Objects.equals(getCapacity(), that.getCapacity()) && Objects.equals(getDate(), that.getDate()) && Objects.equals(getTime(), that.getTime());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, location, capacity, date, time);
+        return Objects.hash(getId(), getName(), getLocation(), getCapacity(), getDate(), getTime());
     }
 
     @Override
     public String toString() {
-        return getClass().getSimpleName() + "(" +
-                "name = " + name + ", " +
-                "location = " + location + ", " +
-                "capacity = " + capacity + ", " +
-                "date = " + date + ", " +
-                "time = " + time;
+        return "ConferenceDTO{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", location='" + location + '\'' +
+                ", capacity=" + capacity +
+                ", date=" + date +
+                ", time=" + time +
+                '}';
     }
 }
+

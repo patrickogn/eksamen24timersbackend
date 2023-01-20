@@ -47,6 +47,11 @@ public class Conference {
     @OneToOne(mappedBy = "conference")
     private Talk talk;
 
+
+
+    public Conference(Integer id, String name, String location, Integer capacity, Date date, Time time) {
+    }
+
     public Integer getId() {
         return id;
     }
